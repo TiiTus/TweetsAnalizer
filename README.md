@@ -3,7 +3,7 @@ Analysis of tweets to know if a hashtag gives rather positive or negative tweets
 ### Prerequisites
 Install tweepy : 
 ```
-  sudo easy_install tweepy
+  pip3 install tweepy
 ```
 OR
 ```
