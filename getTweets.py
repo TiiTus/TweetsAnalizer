@@ -14,16 +14,16 @@ keyword=input("Which word do you want to search ?  ")
 number=input("How many tweets do you want ?  ")
 nb=int(number)
 
-file=open("data.txt", "wb")
+file=open("tweets.txt", "wb")
 
-for tweet in tweepy.Cursor(api.search, q=keyword, lang='fr', tweet_mode='extended').items(nb):
+for tweet in tweepy.Cursor(api.search, q=keyword, lang='en', tweet_mode='extended').items(nb):
 
     if 'retweeted_status' in dir(tweet):
         tweets=tweet.retweeted_status.full_text
     else:
         tweets=tweet.full_text
 
-#Write tweets in file data.txt
+#Write tweets in file tweets.txt
     file.write(tweets.encode('utf-8'))
     my_str = "\n"
     my_str_as_bytes = str.encode(my_str)
