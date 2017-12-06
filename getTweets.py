@@ -10,7 +10,7 @@ auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
 auth.set_access_token(access_token, access_token_secret)
 api = tweepy.API(auth)
 
-keyword=input("Which word do you want to search ?  ")
+keyword=input("Which word(s) do you want to search ?  ")
 number=input("How many tweets do you want ?  ")
 nb=int(number)
 
@@ -24,9 +24,12 @@ for tweet in tweepy.Cursor(api.search, q=keyword, lang='en', tweet_mode='extende
         tweets=tweet.full_text
 
 #Write tweets in file tweets.txt
-    file.write(tweets.encode('utf-8'))
-    my_str = "\n"
-    my_str_as_bytes = str.encode(my_str)
-    file.write(my_str_as_bytes)
+
+    str_tag = " <fin>"
+    str_tag_as_bytes = str.encode(str_tag)
+    str_line = "\n"
+    str_line_as_bytes = str.encode(str_line)
+    file.write(tweets.encode('utf-8')+ str_tag_as_bytes + str_line_as_bytes)
+    #file.write(str_tag_as_bytes + str_line_as_bytes)
 
 file.close()
