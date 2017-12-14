@@ -1,6 +1,5 @@
 import xml.etree.ElementTree as ET
 tree = ET.parse('data.xml')
-#tree = ET.parse('testXML.xml')
 root = tree.getroot()
 
 #Init
@@ -44,7 +43,6 @@ for e in root.findall('document'):
                 for i in h.findall('token'):
                     lemma = i.find('lemma').text
                     pos = i.find('POS').text
-                   # print(lemma,pos)
 
                     if(lemma == "<fin>"):
                         #Reinit
@@ -65,7 +63,7 @@ for e in root.findall('document'):
                             if pos[0].upper() == "N":
                                 for j1 in tabN:
                                     j1 = j1.split(";")
-                                    if lemma.upper() == j1[2].upper():d
+                                    if lemma.upper() == j1[2].upper():
                                         if j1[0] == '0':
                                             pP = pP * (1 / TotalP)
                                         else:
@@ -106,14 +104,4 @@ for e in root.findall('document'):
                                         else:
                                             pN = pN * (float(j3[1]) / TotalN)
                                         break
-                        #print(lemma+" "+str(pN))
                         rtext = rtext+ " "+lemma
-
-
-
-
-
-
-
-
-

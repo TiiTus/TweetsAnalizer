@@ -30,6 +30,5 @@ for tweet in tweepy.Cursor(api.search, q=keyword, lang='en', tweet_mode='extende
     str_line = "\n"
     str_line_as_bytes = str.encode(str_line)
     file.write(tweets.encode('utf-8')+ str_tag_as_bytes + str_line_as_bytes)
-    #file.write(str_tag_as_bytes + str_line_as_bytes)
 
 file.close()

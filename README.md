@@ -1,7 +1,7 @@
 # TweetsAnalizer
-Analysis of tweets to know if a hashtag gives rather positive or negative tweets.
+Analysis of tweets to know if a hashtag (or word(s)) gives rather positive or negative tweets.
 ### Prerequisites
-Install tweepy : 
+Install tweepy :
 ```
   pip3 install tweepy
 ```
