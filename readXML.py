@@ -3,8 +3,10 @@ tree = ET.parse('data.xml')
 root = tree.getroot()
 
 #Init
-TotalP = 5019455 # Somme valeurs positives
-TotalN = 6288570 # Somme valeurs negatives
+
+
+TotalP = 4918811 +1# Somme valeurs positives
+TotalN = 6188939 +1 # Somme valeurs negatives
 TotalN=float(TotalN) # Cast en float
 TotalP=float(TotalP) # Cast en float
 ProbaP = float(TotalP/(TotalN+TotalP)) # Probabilite d'avoir un mot positif
@@ -67,12 +69,12 @@ for e in root.findall('document'):
                                         if j1[0] == '0':
                                             pP = pP * (1 / TotalP)
                                         else:
-                                            pP = pP * (float(j1[0]) / TotalP)
+                                            pP = pP * (float(j1[0]) +1/ TotalP)
 
                                         if j1[1] == '0':
                                             pN = pN * (1 / TotalN)
                                         else:
-                                           pN = pN * (float(j1[1]) / TotalN)
+                                           pN = pN * (float(j1[1]) + 1 / TotalN)
                                         break
                             # Si le mot est un verbe
                             elif pos[0].upper()== "V":
@@ -80,14 +82,14 @@ for e in root.findall('document'):
                                     j2 = j2.split(";")
                                     if lemma.upper() == j2[2].upper():
                                         if j2[0] == '0':
-                                            pP = pP * (1 / TotalP)
+                                            pP = pP * (1  / TotalP)
                                         else:
-                                            pP = pP * (float(j2[0]) / TotalP)
+                                            pP = pP * (float(j2[0]) + 1 / TotalP)
 
                                         if j2[1] == '0':
                                             pN = pN * (1 / TotalN)
                                         else:
-                                            pN = pN * (float(j2[1]) / TotalN)
+                                            pN = pN * (float(j2[1]) + 1 / TotalN)
                                         break
                             # Sinon
                             else:

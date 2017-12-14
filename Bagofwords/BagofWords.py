@@ -17,17 +17,17 @@ with open("SentiWordNet_3.0.0_20130122.txt", "r") as f:
             print(content)
             f1.write(content)
             if int(float(v[2])*1000) == 0:
-                sP = sP+1
+                sP = sP
             else:
                 sP = sP + int(float(v[2])*1000)
 
             if int(float(v[3])*1000) == 0:
-                sN = sN+1
+                sN = sN
             else:
                 sN = sN + int(float(v[3])*1000)
 
     f1.close()
     f.close()
 
-    print sP
-    print sN
+    print (sP)
+    print (sN)
